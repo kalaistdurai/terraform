@@ -1,7 +1,8 @@
-*/terraform.tfvars
-*/terraform.tfstate
-*/terraform.tfstate.backup
+*terraform.tfvars
+*terraform.tfstate
+*terraform.tfstate.backup
 */*.pub
 */*.pem
 */private_ips.txt
 .terraform
+.DS_Store

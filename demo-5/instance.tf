@@ -1,11 +1,3 @@
-terraform {
-  backend "s3" {
-    bucket = "XXXXXXXXXXX -- PASS your bucket name here"
-    key    = "terraform/demo5"
-    region = "us-east-1"
-  }
-}
-
 data "aws_ami" "ubuntu" {
   most_recent = true
 
@@ -22,8 +14,8 @@ data "aws_ami" "ubuntu" {
   owners = ["099720109477"] # Canonical
 }
 
-
-resource "aws_instance" "ubuntu" {
-  ami = "${data.aws_ami.ubuntu.id}"
+resource "aws_instance" "example" {
+  ami           = data.aws_ami.ubuntu.id
   instance_type = "t2.micro"
+  vpc_security_group_ids = [aws_security_group.from_europe.id]
 }
